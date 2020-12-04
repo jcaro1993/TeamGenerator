@@ -21,3 +21,6 @@ If you have any additional questions, contact me by email or GitHub.
 Email: Jcaro1993@gmail.com
 
 GitHub: https://github.com/Jcaro1993
+
+![Screen shot of my team ](myteam.PNG);
+![Screen shot of the manager](manager.PNG);

@@ -40,19 +40,19 @@ const questions = [{
         type: 'input',
         message: "What is the manager's office number?",
         name: 'officeNumber',
-        when: (questions) => questions.role === "Manager"
+        when: (questions) => questions.role == "Manager"
     },
     {
         type: 'input',
         message: "What is this engineer's github user name?",
         name: 'github',
-        when: (questions) => questions.role === "Engineer"
+        when: (questions) => questions.role == "Engineer"
     },
     {
         type: 'input',
         message: "Where does the intern go to school?",
         name: 'school',
-        when: (questions) => questions.role === "Intern"
+        when: (questions) => questions.role == "Intern"
     },
     {
         type: "confirm",
@@ -81,7 +81,7 @@ function init() {
             if (response.add == true) {
                 init();
             } else {
-                fs.writeFile(outputPath, render(employees), (err) => err ? console.error(err) : console.log("Successful generation"));
+                fs.writeFile(outputPath, render(employees), (err) => err ? console.error(err) : console.log("Successfully generated"));
             }
         })
 };
