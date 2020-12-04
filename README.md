@@ -24,3 +24,4 @@ GitHub: https://github.com/Jcaro1993
 
 ![Screen shot of my team ](myteam.PNG);
 ![Screen shot of the manager](manager.PNG);
+![Video](video.gif);
