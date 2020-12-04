@@ -27,6 +27,11 @@ const questions = [{
         name: 'name',
     },
     {
+        type: "input",
+        name: "id",
+        message: "What is their id?"
+    },
+    {
         type: 'input',
         message: "What is the employee's email?",
         name: 'email',
@@ -34,13 +39,13 @@ const questions = [{
     {
         type: 'input',
         message: "What is the manager's office number?",
-        name: 'mNumber',
+        name: 'officeNumber',
         when: (questions) => questions.role === "Manager"
     },
     {
         type: 'input',
-        message: "What is this engineer's office number?",
-        name: 'eNumber',
+        message: "What is this engineer's github user name?",
+        name: 'github',
         when: (questions) => questions.role === "Engineer"
     },
     {
@@ -56,7 +61,7 @@ const questions = [{
     }
 ];
 
-const employees = [];
+const employees = []
 
 function init() {
     inquirer
@@ -64,19 +69,19 @@ function init() {
         .then(response => {
 
             if (response.role == "Manager") {
-                const manager = new Manager(response.name, response.email, response.mNumber);
+                const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
                 employees.push(manager)
             } else if (response.role == "Engineer") {
-                const engineer = new Engineer(response.name, response.email, response.eNumber);
+                const engineer = new Engineer(response.name, response.id, response.email, response.github);
                 employees.push(engineer)
             } else if (response.role == "Intern") {
-                const intern = new Intern(response.name, response.email, response.school);
+                const intern = new Intern(response.name, response.id, response.email, response.school);
                 employees.push(intern)
             };
             if (response.add == true) {
                 init();
             } else {
-                fs.writeFile(outputPath, render(employees), (err) => err ? console.error(err) : console.log("Successfully Generated"));
+                fs.writeFile(outputPath, render(employees), (err) => err ? console.error(err) : console.log("Successful generation"));
             }
         })
 };
